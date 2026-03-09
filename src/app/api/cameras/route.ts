@@ -1,16 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { getSupabaseServerClient } from '@/lib/supabase-server';
 
 export const dynamic = 'force-dynamic';
 
 // GET - List all cameras
 export async function GET() {
   try {
+    const supabase = getSupabaseServerClient();
+
     const { data, error } = await supabase
       .from('cameras')
       .select('*')
@@ -34,6 +31,8 @@ export async function GET() {
 // POST - Create a new camera
 export async function POST(request: NextRequest) {
   try {
+    const supabase = getSupabaseServerClient();
+
     const body = await request.json();
     const { name, ip, username, password, stream = 'stream1' } = body;
 
