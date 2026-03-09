@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { getSupabaseClient } from '@/lib/supabase'
 
 export async function GET() {
     try {
+        const supabase = getSupabaseClient()
+
         // Test the connection by querying the Supabase health check
         const { error } = await supabase.from('_test_connection').select('*').limit(1)
 
