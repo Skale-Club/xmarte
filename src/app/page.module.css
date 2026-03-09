@@ -1,0 +1,190 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
+    margin-left: 260px;
+    padding: 24px;
+    background: var(--background);
+    min-height: 100vh;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    gap: 24px;
+}
+
+.greeting h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.greeting p {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.quickStats {
+    display: flex;
+    gap: 16px;
+}
+
+.statCard {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.statCard svg {
+    color: var(--primary);
+}
+
+.statCard div {
+    display: flex;
+    flex-direction: column;
+}
+
+.statValue {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.statLabel {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.section {
+    margin-bottom: 32px;
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+.sectionTitle svg {
+    color: var(--warning);
+}
+
+.favoritesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.pageTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 24px;
+}
+
+.devicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.automationsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.settingsCard {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--border);
+}
+
+.settingsCard h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.settingsInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.infoRow:last-child {
+    border-bottom: none;
+}
+
+.infoRow span:first-child {
+    color: var(--text-muted);
+}
+
+.infoRow span:last-child {
+    font-weight: 600;
+    color: var(--text);
+}
+
+@media (max-width: 900px) {
+    .main {
+        margin-left: 0;
+        padding: 80px 16px 24px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .quickStats {
+        width: 100%;
+    }
+
+    .statCard {
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .quickStats {
+        flex-direction: column;
+    }
+
+    .favoritesGrid,
+    .devicesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .automationsGrid {
+        grid-template-columns: 1fr;
+    }
+}
